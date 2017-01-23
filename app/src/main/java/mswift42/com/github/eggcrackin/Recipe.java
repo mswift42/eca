@@ -1,8 +1,7 @@
 package mswift42.com.github.eggcrackin;
 
-/**
- * Created by martin on 21/01/17.
- */
+
+import java.util.List;
 
 public class Recipe {
     private  String publisher;
@@ -10,13 +9,14 @@ public class Recipe {
     private String source_url;
     private String image_url;
 
-    public Recipe(String publisher, String title, String source_url, String image_url, String publisher_url, String recipe_id) {
+    public Recipe(String publisher, String title, String source_url, String image_url, String publisher_url, String recipe_id, List<String> ingredients) {
         this.publisher = publisher;
         this.title = title;
         this.source_url = source_url;
         this.image_url = image_url;
         this.publisher_url = publisher_url;
         this.recipe_id = recipe_id;
+        this.ingredients = ingredients;
     }
 
     private String publisher_url;
@@ -46,4 +46,10 @@ public class Recipe {
     }
 
     private String recipe_id;
+
+    public List<String> getIngredients() {
+        return ingredients;
+    }
+
+    private List<String> ingredients;
 }
