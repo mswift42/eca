@@ -14,9 +14,9 @@ public class MockRecipeData {
              "http://static.food2fork.com/frenchtoast300x200b2da65d4.jpg",
             "http://www.simplyrecipes.com",
             "36355",
-            new ArrayList<String>(Arrays.asList(
+            new String[]{
                     "4 eggs",
-            "2/3 cup milk",
+                    "2/3 cup milk",
                     "2 teaspoons of cinnamon",
                     "8 thick slices of 2-day-old bread",
                     "Butter",
@@ -24,7 +24,7 @@ public class MockRecipeData {
                     "2 teaspoons freshly grated orange zest",
                     "1/4 cup Triple Sec",
                     "Fresh berries"
-    ))),
+            }),
            new Recipe(
                     "The Pioneer Woman",
      "French Onion Soup Stuffed Mushrooms",
@@ -32,18 +32,17 @@ public class MockRecipeData {
      "http://static.food2fork.com/5200405868_e86da8e6e8_oceea.jpg",
      "http://thepioneerwoman.com",
      "47078",
-     new ArrayList<String>(Arrays.asList(
-            "2 Tablespoons Butter",
-            "2 whole Large Onions, Halved And Sliced Thin",
-            "1/4 cub Beef Broth",
-            "7 dashes Worcestershire Sauce",
-            "Splash Of Red Or White Wine",
-            "1/2 cub Grated Gruyere Cheese",
-            "Salt",
-            "24 whole White or Crimini Mushrooms",
-            "Minced Parsley"
-     )))
-
+     new String[]{
+             "2 Tablespoons Butter",
+             "2 whole Large Onions, Halved And Sliced Thin",
+             "1/4 cub Beef Broth",
+             "7 dashes Worcestershire Sauce",
+             "Splash Of Red Or White Wine",
+             "1/2 cub Grated Gruyere Cheese",
+             "Salt",
+             "24 whole White or Crimini Mushrooms",
+             "Minced Parsley"
+     })
             ));
 
 }
