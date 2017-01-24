@@ -8,8 +8,13 @@ public class Recipe {
     private String title;
     private String source_url;
     private String image_url;
+    private String publisher_url;
+    private String recipe_id;
+    private String[] ingredients;
 
-    public Recipe(String publisher, String title, String source_url, String image_url, String publisher_url, String recipe_id, List<String> ingredients) {
+    public Recipe(String publisher, String title,
+                  String source_url, String image_url,
+                  String publisher_url, String recipe_id, String[] ingredients) {
         this.publisher = publisher;
         this.title = title;
         this.source_url = source_url;
@@ -19,7 +24,6 @@ public class Recipe {
         this.ingredients = ingredients;
     }
 
-    private String publisher_url;
 
     public String getRecipe_id() {
         return recipe_id;
@@ -45,11 +49,8 @@ public class Recipe {
         return publisher;
     }
 
-    private String recipe_id;
-
-    public List<String> getIngredients() {
+    public String[] getIngredients() {
         return ingredients;
     }
 
-    private List<String> ingredients;
 }
