@@ -6,12 +6,12 @@ import java.util.Arrays;
 import java.util.List;
 
 public class MockRecipeData {
-    public List<Recipe> recipes = new ArrayList<Recipe>(Arrays.asList(
+    public List<Recipe> recipes = new ArrayList<>(Arrays.asList(
             new Recipe(
                     "The Pioneer Woman",
                     "French Toast",
                     "http://www.simplyrecipes.com/recipes/french_toast/",
-                    "http://static.food2fork.com/frenchtoast300x200b2da65d4.jpg",
+                    R.drawable.frenchtoast300200,
                     "http://www.simplyrecipes.com",
                     "36355",
                     new String[]{
@@ -29,7 +29,7 @@ public class MockRecipeData {
                     "The Pioneer Woman",
                     "French Onion Soup Stuffed Mushrooms",
                     "http://thepioneerwoman.com/cooking/2009/11/french-onion-soup-stuffed-mushrooms/",
-                    "http://static.food2fork.com/5200405868_e86da8e6e8_oceea.jpg",
+                    R.drawable.frenchonionstuffedmushrooms,
                     "http://thepioneerwoman.com",
                     "47078",
                     new String[]{
@@ -47,7 +47,7 @@ public class MockRecipeData {
                     "All Recipes",
                     "Easy Slow Cooker French Dip",
                     "http://allrecipes.com/Recipe/Easy-Slow-Cooker-French-Dip/Detail.aspx",
-                    "http://static.food2fork.com/103167cea.jpg",
+                    R.drawable.easyslowcookerfrenchdip,
                     "http://allrecipes.com",
                     "12360",
                     new String[]{
@@ -62,7 +62,7 @@ public class MockRecipeData {
                     "Closet Cooking",
                     "Pumpkin Pie French Toast",
                     "http://www.closetcooking.com/2009/11/pumpkin-pie-french-toast.html",
-                    "http://static.food2fork.com/PumpkinPieFrenchToast15002845c7fe.jpg",
+                    R.drawable.pumpkinpiefrenchtoast,
                     "http://closetcooking.com",
                     "35499",
                     new String[]{
@@ -81,7 +81,7 @@ public class MockRecipeData {
                     "The Pioneer Woman",
                     "Perfect French Fries",
                     "http://thepioneerwoman.com/cooking/2012/01/perfect-french-fries/",
-                    "http://static.food2fork.com/fries4d41.jpg",
+                    R.drawable.frenchfries,
                     "http://thepioneerwoman.com",
                     "46959",
                     new String[]{
