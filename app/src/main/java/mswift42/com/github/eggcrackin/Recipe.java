@@ -1,19 +1,17 @@
 package mswift42.com.github.eggcrackin;
 
 
-import java.util.List;
-
 public class Recipe {
     private  String publisher;
     private String title;
     private String source_url;
-    private String image_url;
+    private Integer image_url;
     private String publisher_url;
     private String recipe_id;
     private String[] ingredients;
 
     public Recipe(String publisher, String title,
-                  String source_url, String image_url,
+                  String source_url, Integer image_url,
                   String publisher_url, String recipe_id, String[] ingredients) {
         this.publisher = publisher;
         this.title = title;
@@ -33,7 +31,7 @@ public class Recipe {
         return publisher_url;
     }
 
-    public String getImage_url() {
+    public Integer getImage_url() {
         return image_url;
     }
 
