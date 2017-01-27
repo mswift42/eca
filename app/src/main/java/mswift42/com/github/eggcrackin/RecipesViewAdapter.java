@@ -15,4 +15,10 @@ public class RecipesViewAdapter extends RecyclerView.Adapter<> {
     private static int viewHolderCount;
 
     private int mNumberItems;
+
+    public RecipesViewAdapter(int numberOfItems, ListItemClickListener listener) {
+        mNumberItems = numberOfItems;
+        mOnClickListener = listener;
+        viewHolderCount = 0;
+    }
 }
