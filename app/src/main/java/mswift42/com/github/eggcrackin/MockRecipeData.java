@@ -6,7 +6,7 @@ import java.util.Arrays;
 import java.util.List;
 
 public class MockRecipeData {
-    public List<Recipe> recipes = new ArrayList<>(Arrays.asList(
+    public final static List<Recipe> recipes = new ArrayList<>(Arrays.asList(
             new Recipe(
                     "The Pioneer Woman",
                     "French Toast",
@@ -91,4 +91,7 @@ public class MockRecipeData {
                     })
     ));
 
+    public static  List<Recipe> getRecipes() {
+        return recipes;
+    }
 }
