@@ -19,6 +19,9 @@ public class MainActivity extends AppCompatActivity
         mRecipeList = (RecyclerView) findViewById(R.id.ec_recyclerview);
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         mRecipeList.setLayoutManager(layoutManager);
+
+        mAdapter = new RecipesAdapter(MockRecipeData.getRecipes().size(), this);
+        mRecipeList.setAdapter(mAdapter);
     }
 
     @Override
