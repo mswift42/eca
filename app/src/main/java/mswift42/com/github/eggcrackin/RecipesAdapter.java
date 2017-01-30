@@ -9,6 +9,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import java.util.List;
+
 public class RecipesAdapter extends RecyclerView.Adapter<RecipesAdapter.RecipeViewHolder> {
 
 
@@ -17,6 +19,8 @@ public class RecipesAdapter extends RecyclerView.Adapter<RecipesAdapter.RecipeVi
     public interface ListItemClickListener {
         void onListItemClick(int clickedItemIndex);
     }
+
+    private List<Recipe> mRecipes = MockRecipeData.getRecipes();
 
     private static int viewHolderCount;
 
@@ -45,10 +49,11 @@ public class RecipesAdapter extends RecyclerView.Adapter<RecipesAdapter.RecipeVi
         return viewHolder;
 
     }
-
+    @Override
     public void onBindViewHolder(RecipeViewHolder holder, int position) {
         holder.bind(position);
     }
+
     class RecipeViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         TextView mRecipeTitle;
 
@@ -62,6 +67,7 @@ public class RecipesAdapter extends RecyclerView.Adapter<RecipesAdapter.RecipeVi
             super(itemView);
 
             mRecipeTitle = (TextView) itemView.findViewById(R.id.ec_recipe_title);
+            mRecipeTitle.setText("hallo");
             // COMPLETED (7) Call setOnClickListener on the View passed into the constructor (use 'this' as the OnClickListener)
             itemView.setOnClickListener(this);
         }
