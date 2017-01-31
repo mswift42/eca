@@ -2,11 +2,13 @@ package mswift42.com.github.eggcrackin;
 
 
 import android.content.Context;
+import android.media.Image;
 import android.support.v4.view.ViewGroupCompat;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.List;
@@ -56,10 +58,13 @@ public class RecipesAdapter extends RecyclerView.Adapter<RecipesAdapter.RecipeVi
 
     class RecipeViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         TextView mRecipeTitle;
+        ImageView mRecipeImage;
 
         void bind(int listIndex) {
-            String title = MockRecipeData.getRecipes().get(listIndex).getTitle();
+            String title = mRecipes.get(listIndex).getTitle();
+            int image = mRecipes.get(listIndex).getImage_url();
             mRecipeTitle.setText(title);
+            mRecipeImage.setImageResource(image);
         }
 
 
@@ -67,7 +72,7 @@ public class RecipesAdapter extends RecyclerView.Adapter<RecipesAdapter.RecipeVi
             super(itemView);
 
             mRecipeTitle = (TextView) itemView.findViewById(R.id.ec_recipe_title);
-            mRecipeTitle.setText("hallo");
+            mRecipeImage = (ImageView) itemView.findViewById(R.id.ec_recipe_image);
             // COMPLETED (7) Call setOnClickListener on the View passed into the constructor (use 'this' as the OnClickListener)
             itemView.setOnClickListener(this);
         }
