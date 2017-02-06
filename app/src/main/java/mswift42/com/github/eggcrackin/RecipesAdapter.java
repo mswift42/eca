@@ -59,6 +59,7 @@ public class RecipesAdapter extends RecyclerView.Adapter<RecipesAdapter.RecipeVi
     class RecipeViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         TextView mRecipeTitle;
         ImageView mRecipeImage;
+        ImageView mFavouriteIcon;
 
         void bind(int listIndex) {
             String title = mRecipes.get(listIndex).getTitle();
