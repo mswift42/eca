@@ -21,4 +21,8 @@ public class Favourites {
         recipes.remove(recipe);
     }
 
+    public boolean isFavourite(Recipe recipe) {
+        return recipes.contains(recipe);
+    }
+
 }
