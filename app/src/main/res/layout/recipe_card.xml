@@ -17,25 +17,31 @@
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
-            <TextView
-                android:layout_alignParentTop="true"
-                android:layout_width="match_parent"
-                android:layout_height="30dp"
-                android:id="@+id/ec_recipe_title"
-                android:padding="4dp"
-                android:text="recipetext"/>
             <ImageView
-                android:layout_below="@id/ec_recipe_title"
                 android:id="@+id/ec_recipe_image"
                 android:layout_gravity="center"
                 android:layout_width="match_parent"
                 android:layout_height="300dp"
                 android:scaleType="fitXY" />
-            <ImageView
+            <LinearLayout
+                android:layout_below="@id/ec_recipe_image"
+                android:orientation="horizontal"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+            <TextView
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_height="30dp"
+                android:id="@+id/ec_recipe_title"
+                android:padding="4dp"
+                android:text="recipetext"/>
+            <ImageView
+                android:baselineAlignBottom="true"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
                 android:id="@+id/ec_favorite_icon"
                 android:src="@drawable/ic_favorite_black_24dp"/>
+            </LinearLayout>
         </RelativeLayout>
     </android.support.v7.widget.CardView>
 
