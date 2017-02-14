@@ -83,18 +83,18 @@ public class RecipesAdapter extends RecyclerView.Adapter<RecipesAdapter.RecipeVi
         }
 
         private void toggleFavourite(int listIndex) {
-            if (Favourites.isFavourite(mRecipes.get(listIndex))) {
-
+            if (!(Favourites.isFavourite(mRecipes.get(listIndex)))) {
                 mFavouriteIcon.setImageResource(R.drawable.ic_favorite_black_24dp);
+                Favourites.addFavourite(mRecipes.get(listIndex));
             } else {
                 mFavouriteIcon.setImageResource(R.drawable.ic_favorite_border_black_24dp);
+                Favourites.deleteFavourite(mRecipes.get(listIndex));
             }
         }
 
         @Override
         public void onClick(View view) {
             int onClickedPosition = getAdapterPosition();
-            Favourites.addFavourite(mRecipes.get(onClickedPosition));
             toggleFavourite(onClickedPosition);
         }
     }
