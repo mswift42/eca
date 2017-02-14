@@ -79,7 +79,6 @@ public class RecipesAdapter extends RecyclerView.Adapter<RecipesAdapter.RecipeVi
             mRecipeImage = (ImageView) itemView.findViewById(R.id.ec_recipe_image);
             // COMPLETED (7) Call setOnClickListener on the View passed into the constructor (use 'this' as the OnClickListener)
             mFavouriteIcon = (ImageView) itemView.findViewById(R.id.ec_favorite_icon_not_favourite);
-            mFavouriteIcon.setImageResource(R.drawable.ic_favorite_black_24dp);
             mFavouriteIcon.setOnClickListener(this);
         }
 
