@@ -1,10 +1,11 @@
 package mswift42.com.github.eggcrackin;
 
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Favourites {
-    private static List<Recipe> recipes;
+    private static List<Recipe> recipes = new ArrayList<>();
 
     public List<Recipe> getRecipes() {
         return recipes;
