@@ -4,7 +4,7 @@ package mswift42.com.github.eggcrackin;
 import java.util.List;
 
 public class Favourites {
-    private List<Recipe> recipes;
+    private static List<Recipe> recipes;
 
     public List<Recipe> getRecipes() {
         return recipes;
@@ -21,7 +21,7 @@ public class Favourites {
         recipes.remove(recipe);
     }
 
-    public boolean isFavourite(Recipe recipe) {
+    public static boolean isFavourite(Recipe recipe) {
         return recipes.contains(recipe);
     }
 
