@@ -82,10 +82,19 @@ public class RecipesAdapter extends RecyclerView.Adapter<RecipesAdapter.RecipeVi
             mFavouriteIcon.setOnClickListener(this);
         }
 
+        private void toggleFavouriteIcon(int listIndex) {
+            if (Favourites.isFavourite(mRecipes.get(listIndex))) {
+                mFavouriteIcon.setImageResource(R.drawable.ic_favorite_black_24dp);
+            } else {
+                mFavouriteIcon.setImageResource(R.drawable.ic_favorite_border_black_24dp);
+            }
+        }
+
         @Override
         public void onClick(View view) {
             int onClickedPosition = getAdapterPosition();
-            mOnClickListener.onListItemClick(onClickedPosition);
+            Favourites.addFavourite(mRecipes.get(onClickedPosition));
+            toggleFavouriteIcon(onClickedPosition);
         }
     }
 
