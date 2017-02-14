@@ -66,6 +66,9 @@ public class RecipesAdapter extends RecyclerView.Adapter<RecipesAdapter.RecipeVi
             int image = mRecipes.get(listIndex).getImage_url();
             mRecipeTitle.setText(title);
             mRecipeImage.setImageResource(image);
+            boolean favourite = Favourites.isFavourite(mRecipes.get(listIndex));
+            mFavouriteIcon.setImageResource(favourite ? R.drawable.ic_favorite_black_24dp :
+                    R.drawable.ic_favorite_border_black_24dp);
         }
 
 
@@ -75,7 +78,9 @@ public class RecipesAdapter extends RecyclerView.Adapter<RecipesAdapter.RecipeVi
             mRecipeTitle = (TextView) itemView.findViewById(R.id.ec_recipe_title);
             mRecipeImage = (ImageView) itemView.findViewById(R.id.ec_recipe_image);
             // COMPLETED (7) Call setOnClickListener on the View passed into the constructor (use 'this' as the OnClickListener)
-            itemView.setOnClickListener(this);
+            mFavouriteIcon = (ImageView) itemView.findViewById(R.id.ec_favorite_icon_not_favourite);
+            mFavouriteIcon.setImageResource(R.drawable.ic_favorite_black_24dp);
+            mFavouriteIcon.setOnClickListener(this);
         }
 
         @Override
