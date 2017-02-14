@@ -11,14 +11,14 @@ public class Favourites {
         return recipes;
     }
 
-    public void setRecipes(List<Recipe> recipes) {
-        this.recipes = recipes;
+    public static void setRecipes(List<Recipe> recipes) {
+        recipes = recipes;
     }
-    public void addFavourite(Recipe recipe) {
+    public static void addFavourite(Recipe recipe) {
         recipes.add(recipe);
     }
 
-    public void deleteFavourite(Recipe recipe) {
+    public static void deleteFavourite(Recipe recipe) {
         recipes.remove(recipe);
     }
 
