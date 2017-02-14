@@ -41,11 +41,6 @@
                     android:layout_height="match_parent"
                     android:id="@+id/ec_favorite_icon_not_favourite"
                     android:src="@drawable/ic_favorite_border_black_24dp"/>
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:visibility="invisible"
-                    android:id="@+id/ec_favorite_icon_is_favourite"
                     android:src="@drawable/ic_favorite_black_24dp"/>
             </LinearLayout>
         </RelativeLayout>
