@@ -86,6 +86,7 @@ public class RecipesAdapter extends RecyclerView.Adapter<RecipesAdapter.RecipeVi
             mFavouriteIcon = (ImageView) itemView.findViewById(R.id.ec_favorite_icon_not_favourite);
             mFavouriteIcon.setOnClickListener(this);
             mRecipeIngredients = (TextView) itemView.findViewById(R.id.ec_recipe_details);
+            // TODO: set OnClick listener on expander icons.
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
