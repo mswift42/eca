@@ -3,8 +3,10 @@ package mswift42.com.github.eggcrackin;
 
 import android.content.Context;
 import android.media.Image;
+import android.support.v4.text.TextUtilsCompat;
 import android.support.v4.view.ViewGroupCompat;
 import android.support.v7.widget.RecyclerView;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -60,12 +62,15 @@ public class RecipesAdapter extends RecyclerView.Adapter<RecipesAdapter.RecipeVi
         TextView mRecipeTitle;
         ImageView mRecipeImage;
         ImageView mFavouriteIcon;
+        TextView mRecipeIngredients;
+        String[] ingredients;
 
         void bind(int listIndex) {
             String title = mRecipes.get(listIndex).getTitle();
             int image = mRecipes.get(listIndex).getImage_url();
             mRecipeTitle.setText(title);
             mRecipeImage.setImageResource(image);
+            ingredients = mRecipes.get(listIndex).getIngredients();
             boolean favourite = Favourites.isFavourite(mRecipes.get(listIndex));
             mFavouriteIcon.setImageResource(favourite ? R.drawable.ic_favorite_black_24dp :
                     R.drawable.ic_favorite_border_black_24dp);
@@ -80,6 +85,13 @@ public class RecipesAdapter extends RecyclerView.Adapter<RecipesAdapter.RecipeVi
             // COMPLETED (7) Call setOnClickListener on the View passed into the constructor (use 'this' as the OnClickListener)
             mFavouriteIcon = (ImageView) itemView.findViewById(R.id.ec_favorite_icon_not_favourite);
             mFavouriteIcon.setOnClickListener(this);
+            mRecipeIngredients = (TextView) itemView.findViewById(R.id.ec_recipe_details);
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    showIngredients();
+                }
+            });
         }
 
         private void toggleFavourite(int listIndex) {
@@ -90,6 +102,11 @@ public class RecipesAdapter extends RecyclerView.Adapter<RecipesAdapter.RecipeVi
                 mFavouriteIcon.setImageResource(R.drawable.ic_favorite_border_black_24dp);
                 Favourites.deleteFavourite(mRecipes.get(listIndex));
             }
+        }
+
+        private void showIngredients() {
+            mRecipeIngredients.setVisibility(View.VISIBLE);
+            mRecipeIngredients.setText(TextUtils.join("\n", ingredients));
         }
 
         @Override
