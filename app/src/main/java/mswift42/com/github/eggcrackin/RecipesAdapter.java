@@ -2,9 +2,6 @@ package mswift42.com.github.eggcrackin;
 
 
 import android.content.Context;
-import android.media.Image;
-import android.support.v4.text.TextUtilsCompat;
-import android.support.v4.view.ViewGroupCompat;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
@@ -63,6 +60,7 @@ public class RecipesAdapter extends RecyclerView.Adapter<RecipesAdapter.RecipeVi
         ImageView mRecipeImage;
         ImageView mFavouriteIcon;
         TextView mRecipeIngredients;
+        ImageView mRecipeExpander;
         String[] ingredients;
         Boolean showDetails = false;
 
@@ -88,10 +86,11 @@ public class RecipesAdapter extends RecyclerView.Adapter<RecipesAdapter.RecipeVi
             mFavouriteIcon.setOnClickListener(this);
             mRecipeIngredients = (TextView) itemView.findViewById(R.id.ec_recipe_details);
             // TODO: set OnClick listener on expander icons.
-            itemView.setOnClickListener(new View.OnClickListener() {
+            mRecipeExpander = (ImageView) itemView.findViewById(R.id.ec_recipe_expander);
+            mRecipeExpander.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    showIngredients();
+                    toggleIngredients();
                 }
             });
         }
@@ -106,9 +105,11 @@ public class RecipesAdapter extends RecyclerView.Adapter<RecipesAdapter.RecipeVi
             }
         }
 
-        private void showIngredients() {
+        private void toggleIngredients() {
             mRecipeIngredients.setVisibility(View.VISIBLE);
             mRecipeIngredients.setText(TextUtils.join("\n", ingredients));
+            mRecipeExpander.setImageResource(R.drawable.ic_expand_less_black_24dp);
+
         }
 
         @Override
