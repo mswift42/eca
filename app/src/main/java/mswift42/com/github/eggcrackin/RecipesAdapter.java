@@ -106,9 +106,17 @@ public class RecipesAdapter extends RecyclerView.Adapter<RecipesAdapter.RecipeVi
         }
 
         private void toggleIngredients() {
-            mRecipeIngredients.setVisibility(View.VISIBLE);
-            mRecipeIngredients.setText(TextUtils.join("\n", ingredients));
-            mRecipeExpander.setImageResource(R.drawable.ic_expand_less_black_24dp);
+            if (!showDetails) {
+                mRecipeIngredients.setVisibility(View.VISIBLE);
+                mRecipeIngredients.setText(TextUtils.join("\n", ingredients));
+                mRecipeExpander.setImageResource(R.drawable.ic_expand_less_black_24dp);
+                showDetails = true;
+            } else {
+                mRecipeIngredients.setVisibility(View.INVISIBLE);
+                mRecipeIngredients.setText("");
+                mRecipeExpander.setImageResource(R.drawable.ic_expand_more_black_24dp);
+                showDetails = false;
+            }
 
         }
 
