@@ -64,6 +64,7 @@ public class RecipesAdapter extends RecyclerView.Adapter<RecipesAdapter.RecipeVi
         ImageView mFavouriteIcon;
         TextView mRecipeIngredients;
         String[] ingredients;
+        Boolean showDetails = false;
 
         void bind(int listIndex) {
             String title = mRecipes.get(listIndex).getTitle();
