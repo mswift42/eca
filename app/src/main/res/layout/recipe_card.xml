@@ -33,12 +33,12 @@
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_gravity="center">
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:id="@+id/ec_recipe_expander"
-                    android:src="@drawable/ic_expand_more_black_24dp"/>
-                    </LinearLayout>
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:id="@+id/ec_recipe_expander"
+                        android:src="@drawable/ic_expand_more_black_24dp"/>
+                </LinearLayout>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_weight="1"
@@ -52,7 +52,6 @@
                     android:layout_height="match_parent"
                     android:id="@+id/ec_favorite_icon_not_favourite"
                     android:src="@drawable/ic_favorite_border_black_24dp"/>
-                    android:src="@drawable/ic_favorite_black_24dp"/>
             </LinearLayout>
             <TextView
                 android:layout_below="@+id/ec_recipe_bottom"
