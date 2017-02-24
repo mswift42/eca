@@ -56,20 +56,22 @@
             <!--TODO: Add RecipeSource-->
             <!--TODO: Add Progress Spinner-->
             <LinearLayout
-                android:orientation="horizontal"
+                android:orientation="vertical"
+                android:layout_below="@id/ec_recipe_bottom"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:id="@+id/ec_recipe_details"
+                android:visibility="gone">
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/ec_recipe_source"/>
-            <TextView
-                android:layout_below="@+id/ec_recipe_bottom"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:id="@+id/ec_recipe_details"
-                android:text="@string/recipe_ingredients_title"
-                android:visibility="invisible"/>
+                    android:id="@+id/ec_recipe_publisher"/>
+                <TextView
+                    android:layout_below="@+id/ec_recipe_bottom"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/ec_recipe_ingredients"
+                    android:text="@string/recipe_ingredients_title" />
             </LinearLayout>
         </RelativeLayout>
     </android.support.v7.widget.CardView>

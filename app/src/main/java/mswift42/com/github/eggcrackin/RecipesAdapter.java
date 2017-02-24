@@ -119,7 +119,6 @@ public class RecipesAdapter extends RecyclerView.Adapter<RecipesAdapter.RecipeVi
                 showDetails = true;
             } else {
                 mRecipeDetails.setVisibility(View.GONE);
-                mRecipeIngredients.setText("");
                 mRecipeExpander.setImageResource(R.drawable.ic_expand_more_black_24dp);
                 showDetails = false;
             }
