@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import java.util.List;
@@ -59,11 +60,12 @@ public class RecipesAdapter extends RecyclerView.Adapter<RecipesAdapter.RecipeVi
         TextView mRecipeTitle;
         ImageView mRecipeImage;
         ImageView mFavouriteIcon;
+        LinearLayout mRecipeDetails;
         TextView mRecipeIngredients;
         ImageView mRecipeExpander;
+        TextView mRecipePublisher;
         String[] ingredients;
         Boolean showDetails = false;
-//        TODO: Add TextView for RecipeSource
 
         void bind(int listIndex) {
             String title = mRecipes.get(listIndex).getTitle();
@@ -74,6 +76,8 @@ public class RecipesAdapter extends RecyclerView.Adapter<RecipesAdapter.RecipeVi
             boolean favourite = Favourites.isFavourite(mRecipes.get(listIndex));
             mFavouriteIcon.setImageResource(favourite ? R.drawable.ic_favorite_black_24dp :
                     R.drawable.ic_favorite_border_black_24dp);
+            String publisher = mRecipes.get(listIndex).getPublisher();
+            mRecipePublisher.setText(publisher);
         }
 
 
@@ -85,13 +89,14 @@ public class RecipesAdapter extends RecyclerView.Adapter<RecipesAdapter.RecipeVi
             // COMPLETED (7) Call setOnClickListener on the View passed into the constructor (use 'this' as the OnClickListener)
             mFavouriteIcon = (ImageView) itemView.findViewById(R.id.ec_favorite_icon_not_favourite);
             mFavouriteIcon.setOnClickListener(this);
-            mRecipeIngredients = (TextView) itemView.findViewById(R.id.ec_recipe_details);
-            // TODO: set OnClick listener on expander icons.
+            mRecipeIngredients = (TextView) itemView.findViewById(R.id.ec_recipe_ingredients);
+            mRecipeDetails = (LinearLayout) itemView.findViewById(R.id.ec_recipe_details);
+            mRecipePublisher = (TextView) itemView.findViewById(R.id.ec_recipe_publisher);
             mRecipeExpander = (ImageView) itemView.findViewById(R.id.ec_recipe_expander);
             mRecipeExpander.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    toggleIngredients();
+                    toggleDetails();
                 }
             });
         }
@@ -106,14 +111,14 @@ public class RecipesAdapter extends RecyclerView.Adapter<RecipesAdapter.RecipeVi
             }
         }
 
-        private void toggleIngredients() {
+        private void toggleDetails() {
             if (!showDetails) {
-                mRecipeIngredients.setVisibility(View.VISIBLE);
+                mRecipeDetails.setVisibility(View.VISIBLE);
                 mRecipeIngredients.setText(TextUtils.join("\n", ingredients));
                 mRecipeExpander.setImageResource(R.drawable.ic_expand_less_black_24dp);
                 showDetails = true;
             } else {
-                mRecipeIngredients.setVisibility(View.INVISIBLE);
+                mRecipeDetails.setVisibility(View.GONE);
                 mRecipeIngredients.setText("");
                 mRecipeExpander.setImageResource(R.drawable.ic_expand_more_black_24dp);
                 showDetails = false;
