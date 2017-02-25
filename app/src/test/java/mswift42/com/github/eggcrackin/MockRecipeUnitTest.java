@@ -2,6 +2,8 @@ package mswift42.com.github.eggcrackin;
 
 import org.junit.Test;
 
+import java.util.List;
+
 import static org.junit.Assert.*;
 
 /**
@@ -11,7 +13,9 @@ import static org.junit.Assert.*;
  */
 public class MockRecipeUnitTest {
     @Test
-    public void addition_isCorrect() throws Exception {
-        assertEquals(4, 2 + 2);
+    public void mockrecipedata_contains_recipe_list() throws Exception {
+        List<Recipe> recipes = MockRecipeData.getRecipes();
+        assertEquals(recipes.size(), 5);
+        assertEquals(recipes.get(0).getTitle(), "French Toast");
     }
 }
