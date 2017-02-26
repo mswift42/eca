@@ -11,7 +11,7 @@ import static org.junit.Assert.*;
  *
  * @see <a href="http://d.android.com/tools/testing">Testing documentation</a>
  */
-public class MockRecipeUnitTest {
+public class MockRecipeServiceUnitTest {
     @Test
     public void mockrecipedata_contains_recipe_list() throws Exception {
         List<Recipe> recipes = MockRecipeData.getRecipes();
