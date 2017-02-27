@@ -43,8 +43,31 @@ public class Favourites {
         writer.beginArray();
         for (Recipe recipe : recipelist) {
             writeRecipe(writer, recipe);
-            writer.close();
         }
+        writer.endArray();
+    }
+
+    private void writeRecipe(JsonWriter writer, Recipe recipe) throws IOException {
+        writer.beginObject();
+        writer.name("publisher").value(recipe.getPublisher());
+        writer.name("title").value(recipe.getTitle());
+        writer.name("source_url").value(recipe.getSource_url());
+        writer.name("image_url").value(recipe.getImage_url());
+        writer.name("publisher_url").value(recipe.getPublisher_url());
+        writer.name("recipe_id").value(recipe.getRecipe_id());
+        if (recipe.getIngredients() != null) {
+            writer.name("ingredients");
+            writeStringArray(writer, recipe.getIngredients());
+        }
+        writer.close();
+    }
+
+    private void writeStringArray(JsonWriter writer, String[] ingredients) throws IOException {
+        writer.beginArray();
+        for (String ingredient : ingredients) {
+            writer.value(ingredient);
+        }
+        writer.endArray();
     }
 
 
