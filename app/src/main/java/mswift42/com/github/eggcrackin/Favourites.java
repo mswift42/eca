@@ -1,6 +1,11 @@
 package mswift42.com.github.eggcrackin;
 
 
+import android.util.JsonWriter;
+
+import java.io.IOException;
+import java.io.OutputStream;
+import java.io.OutputStreamWriter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,5 +30,22 @@ public class Favourites {
     public static boolean isFavourite(Recipe recipe) {
         return recipes.contains(recipe);
     }
+
+    public static void saveFavourites() {
+
+     }
+    private void writeJsonStream(OutputStream out, List<Recipe> recipelist) throws IOException {
+        JsonWriter writer = new JsonWriter(new OutputStreamWriter(out, "UTF-8"));
+        writer.setIndent("  ");
+        writeRecipesArray(writer, recipelist);
+    }
+    private void writeRecipesArray(JsonWriter writer, List<Recipe> recipelist) throws IOException {
+        writer.beginArray();
+        for (Recipe recipe : recipelist) {
+            writeRecipe(writer, recipe);
+            writer.close();
+        }
+    }
+
 
 }
