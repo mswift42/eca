@@ -35,13 +35,16 @@ public class Favourites {
         return recipes.contains(recipe);
     }
 
-    public static void saveFavourites() {
+    public void saveFavourites() {
         File folderPath = Environment.getExternalStorageDirectory();
         File savedfavourites = new File(folderPath, "favourites.json");
         try {
             FileOutputStream fop = new FileOutputStream(savedfavourites);
             if (!savedfavourites.exists()) {
                 savedfavourites.createNewFile();
+                writeJsonStream(fop, recipes);
+                fop.flush();
+                fop.close();
             }
         } catch (IOException e) {
             Log.d("TAG", e.toString());
