@@ -1,8 +1,12 @@
 package mswift42.com.github.eggcrackin;
 
 
+import android.os.Environment;
 import android.util.JsonWriter;
+import android.util.Log;
 
+import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
@@ -32,6 +36,17 @@ public class Favourites {
     }
 
     public static void saveFavourites() {
+        File folderPath = Environment.getExternalStorageDirectory();
+        File savedfavourites = new File(folderPath, "favourites.json");
+        try {
+            FileOutputStream fop = new FileOutputStream(savedfavourites);
+            if (!savedfavourites.exists()) {
+                savedfavourites.createNewFile();
+            }
+        } catch (IOException e) {
+            Log.d("TAG", e.toString());
+        }
+
 
      }
     private void writeJsonStream(OutputStream out, List<Recipe> recipelist) throws IOException {
