@@ -25,6 +25,12 @@ public class MainActivity extends AppCompatActivity
     }
 
     @Override
+    protected void onStop() {
+        super.onStop();
+
+    }
+
+    @Override
     public void onListItemClick(int clickedItemIndex) {
         Toast toast = Toast.makeText(this, "recipe", Toast.LENGTH_SHORT);
         toast.show();
