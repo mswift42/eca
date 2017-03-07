@@ -73,7 +73,8 @@ public class RecipesAdapter extends RecyclerView.Adapter<RecipesAdapter.RecipeVi
             mRecipeTitle.setText(title);
             mRecipeImage.setImageResource(image);
             ingredients = mRecipes.get(listIndex).getIngredients();
-            boolean favourite = Favourites.isFavourite(mRecipes.get(listIndex));
+            Favourites favs = new Favourites();
+            boolean favourite = favs.isFavourite(mRecipes.get(listIndex));
             mFavouriteIcon.setImageResource(favourite ? R.drawable.ic_favorite_black_24dp :
                     R.drawable.ic_favorite_border_black_24dp);
             String publisher = mRecipes.get(listIndex).getPublisher();
@@ -102,12 +103,13 @@ public class RecipesAdapter extends RecyclerView.Adapter<RecipesAdapter.RecipeVi
         }
 
         private void toggleFavourite(int listIndex) {
-            if (!(Favourites.isFavourite(mRecipes.get(listIndex)))) {
+            Favourites favs = new Favourites();
+            if (!(favs.isFavourite(mRecipes.get(listIndex)))) {
                 mFavouriteIcon.setImageResource(R.drawable.ic_favorite_black_24dp);
-                Favourites.addFavourite(mRecipes.get(listIndex));
+                favs.addFavourite(mRecipes.get(listIndex));
             } else {
                 mFavouriteIcon.setImageResource(R.drawable.ic_favorite_border_black_24dp);
-                Favourites.deleteFavourite(mRecipes.get(listIndex));
+                favs.deleteFavourite(mRecipes.get(listIndex));
             }
         }
 
