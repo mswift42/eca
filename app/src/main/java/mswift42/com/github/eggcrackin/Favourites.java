@@ -1,22 +1,14 @@
 package mswift42.com.github.eggcrackin;
 
 
-import android.os.Environment;
-import android.util.JsonWriter;
-import android.util.Log;
 
 import com.google.gson.Gson;
 
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.OutputStream;
-import java.io.OutputStreamWriter;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Favourites {
-    private static List<Recipe> recipes = new ArrayList<>();
+    private List<Recipe> recipes = new ArrayList<>();
 
     public Favourites() {
     }
@@ -33,8 +25,8 @@ public class Favourites {
         recipes.add(recipe);
     }
 
-    public void deleteFavourite(Recipe recipe) {
-        recipes.remove(recipe);
+    public boolean deleteFavourite(Recipe recipe) {
+        return recipes.remove(recipe);
     }
 
     public boolean isFavourite(Recipe recipe) {

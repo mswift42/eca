@@ -37,6 +37,13 @@ public class FavouritesUnitTest {
         boolean removed = favs.deleteFavourite(mr.get(0));
         assertTrue(removed);
         assertEquals(favs.getRecipes().size(),4);
+    }
 
+    @Test
+    public void isFavourite_returns_correct_boolean() throws Exception {
+        Favourites favs = new Favourites();
+        List<Recipe> mr = MockRecipeData.getRecipes();
+        favs.setRecipes(mr);
+        assertTrue(favs.isFavourite(mr.get(0)));
     }
 }
