@@ -25,8 +25,8 @@ public class Favourites {
         return recipes;
     }
 
-    public static void setRecipes(List<Recipe> recipes) {
-        recipes = recipes;
+    public void setRecipes(List<Recipe> recipelist) {
+        recipes = recipelist;
     }
 
     public static void addFavourite(Recipe recipe) {
@@ -52,23 +52,23 @@ public class Favourites {
         setRecipes(favourites.getRecipes());
     }
 
-    public void saveFavourites() {
-        File folderPath = Environment.getExternalStorageDirectory();
-        File savedfavourites = new File(folderPath, "favourites.json");
-        try {
-            FileOutputStream fop = new FileOutputStream(savedfavourites);
-            if (!savedfavourites.exists()) {
-                savedfavourites.createNewFile();
-                (fop, recipes);
-                fop.flush();
-                fop.close();
-            }
-        } catch (IOException e) {
-            Log.d("TAG", e.toString());
-        }
-
-
-    }
+//    public void saveFavourites() {
+//        File folderPath = Environment.getExternalStorageDirectory();
+//        File savedfavourites = new File(folderPath, "favourites.json");
+//        try {
+//            FileOutputStream fop = new FileOutputStream(savedfavourites);
+//            if (!savedfavourites.exists()) {
+//                savedfavourites.createNewFile();
+//                (fop, recipes);
+//                fop.flush();
+//                fop.close();
+//            }
+//        } catch (IOException e) {
+//            Log.d("TAG", e.toString());
+//        }
+//
+//
+//    }
 
 
 }
