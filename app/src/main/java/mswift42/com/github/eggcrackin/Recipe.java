@@ -1,6 +1,8 @@
 package mswift42.com.github.eggcrackin;
 
 
+import com.google.gson.Gson;
+
 public class Recipe {
     private  String publisher;
     private String title;
@@ -20,6 +22,8 @@ public class Recipe {
         this.publisher_url = publisher_url;
         this.recipe_id = recipe_id;
         this.ingredients = ingredients;
+    }
+    public Recipe() {
     }
 
 
