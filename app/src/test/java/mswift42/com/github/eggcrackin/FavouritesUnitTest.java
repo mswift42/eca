@@ -17,7 +17,7 @@ public class FavouritesUnitTest {
     public void setrecipes_sets_recipes_to_favourites_list() throws Exception {
         Favourites favs = new Favourites();
         favs.setRecipes(MockRecipeData.getRecipes());
-        assertEquals(favs.getRecipes().size(), 5);
+        assertEquals(favs.getRecipes().size(), 4);
     }
 
     @Test
@@ -26,5 +26,17 @@ public class FavouritesUnitTest {
         List<Recipe> mr = MockRecipeData.getRecipes();
         favs.addFavourite(mr.get(0));
         assertEquals(favs.getRecipes().size(),1);
+    }
+
+    @Test
+    public void deleteFavourite_deletes_favourite() throws Exception {
+        Favourites favs = new Favourites();
+        List<Recipe> mr = MockRecipeData.getRecipes();
+        favs.setRecipes(mr);
+        assertEquals(favs.getRecipes().size(),5);
+        boolean removed = favs.deleteFavourite(mr.get(0));
+        assertTrue(removed);
+        assertEquals(favs.getRecipes().size(),4);
+
     }
 }
