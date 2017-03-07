@@ -29,15 +29,15 @@ public class Favourites {
         recipes = recipelist;
     }
 
-    public static void addFavourite(Recipe recipe) {
+    public void addFavourite(Recipe recipe) {
         recipes.add(recipe);
     }
 
-    public static void deleteFavourite(Recipe recipe) {
+    public void deleteFavourite(Recipe recipe) {
         recipes.remove(recipe);
     }
 
-    public static boolean isFavourite(Recipe recipe) {
+    public boolean isFavourite(Recipe recipe) {
         return recipes.contains(recipe);
     }
 
