@@ -5,33 +5,37 @@ package mswift42.com.github.eggcrackin;
 import com.google.gson.Gson;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashSet;
 import java.util.List;
 
 public class Favourites {
-    private List<Recipe> recipes = new ArrayList<>();
+    private Collection<Recipe> favourites = new HashSet<>();
+
+
     // TODO - Change to Set.
 
     public Favourites() {
     }
 
-    public List<Recipe> getRecipes() {
-        return recipes;
+    public Collection<Recipe> getFavourites() {
+        return favourites;
     }
 
-    public void setRecipes(List<Recipe> recipelist) {
-        recipes = recipelist;
+    public void setFavourites(Collection<Recipe> recipeset) {
+        favourites = recipeset;
     }
 
     public void addFavourite(Recipe recipe) {
-        recipes.add(recipe);
+        favourites.add(recipe);
     }
 
     public boolean deleteFavourite(Recipe recipe) {
-        return recipes.remove(recipe);
+        return favourites.remove(recipe);
     }
 
     public boolean isFavourite(Recipe recipe) {
-        return recipes.contains(recipe);
+        return favourites.contains(recipe);
     }
 
     public String toJson() {
@@ -42,7 +46,7 @@ public class Favourites {
     private void fromJson(String json) {
         Gson gson = new Gson();
         Favourites favourites = gson.fromJson(json, Favourites.class);
-        setRecipes(favourites.getRecipes());
+        setFavourites(favourites.getFavourites());
     }
 
     // TODO add writeToFile method.
@@ -55,7 +59,7 @@ public class Favourites {
 //            FileOutputStream fop = new FileOutputStream(savedfavourites);
 //            if (!savedfavourites.exists()) {
 //                savedfavourites.createNewFile();
-//                (fop, recipes);
+//                (fop, favourites);
 //                fop.flush();
 //                fop.close();
 //            }
