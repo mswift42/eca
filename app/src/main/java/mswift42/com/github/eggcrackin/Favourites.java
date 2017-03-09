@@ -9,6 +9,7 @@ import java.util.List;
 
 public class Favourites {
     private List<Recipe> recipes = new ArrayList<>();
+    // TODO - Change to Set.
 
     public Favourites() {
     }
@@ -43,6 +44,9 @@ public class Favourites {
         Favourites favourites = gson.fromJson(json, Favourites.class);
         setRecipes(favourites.getRecipes());
     }
+
+    // TODO add writeToFile method.
+    // TODO add restoreFromFile method.
 
 //    public void saveFavourites() {
 //        File folderPath = Environment.getExternalStorageDirectory();

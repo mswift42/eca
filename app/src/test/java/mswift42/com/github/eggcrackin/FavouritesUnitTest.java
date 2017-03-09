@@ -46,4 +46,5 @@ public class FavouritesUnitTest {
         favs.setRecipes(mr);
         assertTrue(favs.isFavourite(mr.get(0)));
     }
+    // TODO add tests for toJSON / fromJSON methods.
 }
