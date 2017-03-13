@@ -15,7 +15,6 @@ import java.util.List;
 
 public class Favourites {
     private Collection<Recipe> favourites = new HashSet<>();
-    String savedfavourites = "favourites.json";
 
     public Favourites() {
     }
@@ -50,7 +49,4 @@ public class Favourites {
         Favourites favourites = gson.fromJson(json, Favourites.class);
         setFavourites(favourites.getFavourites());
     }
-    // TODO add writeToFile method.
-    // TODO add restoreFromFile method.
-
 }
