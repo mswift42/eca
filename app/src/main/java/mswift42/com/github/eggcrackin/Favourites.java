@@ -2,6 +2,10 @@ package mswift42.com.github.eggcrackin;
 
 
 
+import android.app.Application;
+import android.content.Context;
+import android.content.pm.ApplicationInfo;
+
 import com.google.gson.Gson;
 
 import java.util.ArrayList;
@@ -11,9 +15,7 @@ import java.util.List;
 
 public class Favourites {
     private Collection<Recipe> favourites = new HashSet<>();
-
-
-    // TODO - Change to Set.
+    String savedfavourites = "favourites.json";
 
     public Favourites() {
     }
@@ -43,32 +45,12 @@ public class Favourites {
         return gson.toJson(this);
     }
 
-    private void fromJson(String json) {
+    public void fromJson(String json) {
         Gson gson = new Gson();
         Favourites favourites = gson.fromJson(json, Favourites.class);
         setFavourites(favourites.getFavourites());
     }
-
     // TODO add writeToFile method.
     // TODO add restoreFromFile method.
-
-//    public void saveFavourites() {
-//        File folderPath = Environment.getExternalStorageDirectory();
-//        File savedfavourites = new File(folderPath, "favourites.json");
-//        try {
-//            FileOutputStream fop = new FileOutputStream(savedfavourites);
-//            if (!savedfavourites.exists()) {
-//                savedfavourites.createNewFile();
-//                (fop, favourites);
-//                fop.flush();
-//                fop.close();
-//            }
-//        } catch (IOException e) {
-//            Log.d("TAG", e.toString());
-//        }
-//
-//
-//    }
-
 
 }
