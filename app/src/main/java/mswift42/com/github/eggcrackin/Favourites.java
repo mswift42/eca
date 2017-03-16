@@ -2,16 +2,11 @@ package mswift42.com.github.eggcrackin;
 
 
 
-import android.app.Application;
-import android.content.Context;
-import android.content.pm.ApplicationInfo;
 
 import com.google.gson.Gson;
 
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashSet;
-import java.util.List;
 
 public class Favourites {
     private Collection<Recipe> favourites = new HashSet<>();

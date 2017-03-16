@@ -12,7 +12,6 @@ import java.io.InputStreamReader;
 public class FileUtility {
     private static final String savedFavourites = "favourites.json";
 
-
     public static void writeToFile(Context context, String content) {
         FileOutputStream outputStream;
         try {
