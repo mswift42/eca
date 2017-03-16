@@ -24,7 +24,7 @@ public class FileUtility {
         }
     }
 
-    public static String restoreFromFile(Context context, String content) throws FileNotFoundException {
+    public static String restoreFromFile(Context context) throws FileNotFoundException {
         try {
             FileInputStream fi = context.getApplicationContext()
                     .openFileInput(savedFavourites);
