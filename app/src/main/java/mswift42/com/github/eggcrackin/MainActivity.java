@@ -26,9 +26,8 @@ public class MainActivity extends AppCompatActivity
 
     @Override
     protected void onStop() {
-        Favourites favs = new Favourites();
-        FileUtility.writeToFile(this, favs.toJson());
         super.onStop();
+        FileUtility.writeToFile(this, Favourites.getInstance().toJson());
 
     }
 
