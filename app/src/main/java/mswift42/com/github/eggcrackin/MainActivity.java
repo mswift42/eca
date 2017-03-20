@@ -22,6 +22,12 @@ public class MainActivity extends AppCompatActivity
 
         mAdapter = new RecipesAdapter(MockRecipeData.getRecipes().size(), this);
         mRecipeList.setAdapter(mAdapter);
+        try {
+            String restored = FileUtility.restoreFromFile(this);
+            Favourites.getInstance().setRecipesFromJson(restored);
+        }catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
