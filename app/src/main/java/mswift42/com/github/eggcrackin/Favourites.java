@@ -1,37 +1,41 @@
 package mswift42.com.github.eggcrackin;
 
-
-
-
 import com.google.gson.Gson;
 
 import java.util.Collection;
 import java.util.HashSet;
 
+
 public class Favourites {
-    private Collection<Recipe> favourites = new HashSet<>();
+    private static final Favourites ourInstance = new Favourites();
+    private Collection<Recipe> mFavourites = new HashSet<>();
 
-    public Favourites() {
+    public static Favourites getInstance() {
+        return ourInstance;
     }
 
-    public Collection<Recipe> getFavourites() {
-        return favourites;
+    private Favourites() {
     }
 
-    public void setFavourites(Collection<Recipe> recipeset) {
-        favourites = recipeset;
+
+    public Collection<Recipe> getmFavourites() {
+        return this.mFavourites;
+    }
+
+    public void setmFavourites(Collection<Recipe> recipeset) {
+        mFavourites = recipeset;
     }
 
     public void addFavourite(Recipe recipe) {
-        favourites.add(recipe);
+        mFavourites.add(recipe);
     }
 
     public boolean deleteFavourite(Recipe recipe) {
-        return favourites.remove(recipe);
+        return this.mFavourites.remove(recipe);
     }
 
     public boolean isFavourite(Recipe recipe) {
-        return favourites.contains(recipe);
+        return mFavourites.contains(recipe);
     }
 
     public String toJson() {
@@ -39,9 +43,4 @@ public class Favourites {
         return gson.toJson(this);
     }
 
-    public void fromJson(String json) {
-        Gson gson = new Gson();
-        Favourites favourites = gson.fromJson(json, Favourites.class);
-        setFavourites(favourites.getFavourites());
-    }
 }
