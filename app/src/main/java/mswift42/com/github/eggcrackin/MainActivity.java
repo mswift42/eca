@@ -2,6 +2,7 @@ package mswift42.com.github.eggcrackin;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.widget.Toast;
@@ -17,7 +18,8 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
 
         mRecipeList = (RecyclerView) findViewById(R.id.ec_recyclerview);
-        LinearLayoutManager layoutManager = new LinearLayoutManager(this);
+        int noOfColumns = SpanUtility.calculateNoOfColumns(this);
+        LinearLayoutManager layoutManager = new GridLayoutManager(this, noOfColumns );
         mRecipeList.setLayoutManager(layoutManager);
 
         mAdapter = new RecipesAdapter(MockRecipeData.getRecipes().size(), this);
@@ -25,7 +27,7 @@ public class MainActivity extends AppCompatActivity
         try {
             String restored = FileUtility.restoreFromFile(this);
             Favourites.getInstance().setRecipesFromJson(restored);
-        }catch (Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
