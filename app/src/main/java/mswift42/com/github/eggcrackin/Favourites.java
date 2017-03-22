@@ -1,41 +1,15 @@
 package mswift42.com.github.eggcrackin;
 
-import android.os.Parcel;
-import android.os.Parcelable;
-
 import com.google.gson.Gson;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashSet;
 
 
-public class Favourites implements Parcelable {
+public class Favourites {
     private static final Favourites ourInstance = new Favourites();
-    private Collection<Recipe> favourites = new HashSet<>();
-
-    protected Favourites(Parcel in) {
-    }
-
-    @Override
-    public void writeToParcel(Parcel dest, int flags) {
-    }
-
-    @Override
-    public int describeContents() {
-        return 0;
-    }
-
-    public static final Creator<Favourites> CREATOR = new Creator<Favourites>() {
-        @Override
-        public Favourites createFromParcel(Parcel in) {
-            return new Favourites(in);
-        }
-
-        @Override
-        public Favourites[] newArray(int size) {
-            return new Favourites[size];
-        }
-    };
+    private ArrayList<String> favourites;
 
     public static Favourites getInstance() {
         return ourInstance;
@@ -45,16 +19,16 @@ public class Favourites implements Parcelable {
     }
 
 
-    public Collection<Recipe> getFavourites() {
+    public ArrayList<String> getFavourites() {
         return this.favourites;
     }
 
-    public void setFavourites(Collection<Recipe> recipeset) {
+    public void setFavourites(ArrayList<String> recipeset) {
         favourites = recipeset;
     }
 
     public void addFavourite(Recipe recipe) {
-        favourites.add(recipe);
+        favourites.add(recipe.getRecipe_id());
     }
 
     public boolean deleteFavourite(Recipe recipe) {
