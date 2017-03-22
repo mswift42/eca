@@ -1,11 +1,15 @@
 package mswift42.com.github.eggcrackin;
 
+import android.os.Parcelable;
+import android.os.PersistableBundle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.widget.Toast;
+
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity
         implements RecipesAdapter.ListItemClickListener {
@@ -35,8 +39,20 @@ public class MainActivity extends AppCompatActivity
     @Override
     protected void onStop() {
         super.onStop();
-        FileUtility.writeToFile(this, Favourites.getInstance().toJson());
+    }
 
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        outState.putStringArrayList("favourites",
+                Favourites.getInstance().getFavourites());
+        super.onSaveInstanceState(outState);
+    }
+
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        Favourites.getInstance().setFavourites(
+                savedInstanceState.getStringArrayList("favourites"));
     }
 
     @Override
