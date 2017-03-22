@@ -28,15 +28,17 @@ public class Favourites {
     }
 
     public void addFavourite(Recipe recipe) {
-        favourites.add(recipe.getRecipe_id());
+        if (!(isFavourite(recipe))) {
+            favourites.add(recipe.getRecipe_id());
+        }
     }
 
     public boolean deleteFavourite(Recipe recipe) {
-        return this.favourites.remove(recipe);
+        return this.favourites.remove(recipe.getRecipe_id());
     }
 
     public boolean isFavourite(Recipe recipe) {
-        return favourites.contains(recipe);
+        return favourites.contains(recipe.getRecipe_id());
     }
 
     public String toJson() {
