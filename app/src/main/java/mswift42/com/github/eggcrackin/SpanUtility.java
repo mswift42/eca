@@ -8,7 +8,7 @@ public class SpanUtility {
     public static int calculateNoOfColumns(Context context) {
         DisplayMetrics displayMetrics = context.getResources().getDisplayMetrics();
         float dpWidth = displayMetrics.widthPixels / displayMetrics.density;
-        int columns = (int) (dpWidth / 300);
+        int columns = (int) (dpWidth / 260);
         return columns;
     }
 }

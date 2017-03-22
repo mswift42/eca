@@ -61,4 +61,10 @@ public class MainActivity extends AppCompatActivity
         toast.show();
 
     }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        FileUtility.writeToFile(this, Favourites.getInstance().toJson());
+    }
 }
