@@ -9,7 +9,7 @@ import java.util.HashSet;
 
 public class Favourites {
     private static final Favourites ourInstance = new Favourites();
-    private ArrayList<String> favourites;
+    private ArrayList<String> favourites = new ArrayList<>();
 
     public static Favourites getInstance() {
         return ourInstance;
