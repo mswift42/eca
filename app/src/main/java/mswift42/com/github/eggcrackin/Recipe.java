@@ -1,9 +1,10 @@
 package mswift42.com.github.eggcrackin;
 
 
-import com.google.gson.Gson;
+import android.os.Parcel;
+import android.os.Parcelable;
 
-public class Recipe {
+public class Recipe implements Parcelable {
     private  String publisher;
     private String title;
     private String source_url;
@@ -55,4 +56,13 @@ public class Recipe {
         return ingredients;
     }
 
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+
+    }
 }
