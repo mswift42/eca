@@ -24,6 +24,24 @@ public class Recipe implements Parcelable {
         this.recipe_id = recipe_id;
         this.ingredients = ingredients;
     }
+
+    public static final Parcelable.Creator<Recipe> CREATOR =
+            new Parcelable.Creator<Recipe>() {
+                @Override
+               public Recipe[] newArray(int size) {
+                   return new Recipe[size];
+               }
+                @Override
+               public Recipe createFromParcel(Parcel source) {
+                   return new Recipe(source.readString(),
+                           source.readString(),
+                           source.readString(),
+                           source.readInt(),
+                           source.readString(),
+                           source.readString(),
+                           source.createStringArray());
+               }
+            };
     public Recipe() {
     }
 
