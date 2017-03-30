@@ -22,26 +22,26 @@ public class Favourites implements Parcelable {
     }
 
 
-    public ArrayList<String> getFavourites() {
+    public ArrayList<Recipe> getFavourites() {
         return this.favourites;
     }
 
-    public void setFavourites(ArrayList<String> recipeset) {
-        favourites = recipeset;
+    public void setFavourites(ArrayList<Recipe> recipes) {
+        favourites = recipes;
     }
 
     public void addFavourite(Recipe recipe) {
         if (!(isFavourite(recipe))) {
-            favourites.add(recipe.getRecipe_id());
+            favourites.add(recipe);
         }
     }
 
     public boolean deleteFavourite(Recipe recipe) {
-        return this.favourites.remove(recipe.getRecipe_id());
+        return this.favourites.remove(recipe);
     }
 
     public boolean isFavourite(Recipe recipe) {
-        return favourites.contains(recipe.getRecipe_id());
+        return favourites.contains(recipe);
     }
 
     public String toJson() {
