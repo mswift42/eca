@@ -1,5 +1,6 @@
 package mswift42.com.github.eggcrackin;
 
+
 import android.os.Parcel;
 import android.os.Parcelable;
 
@@ -20,6 +21,7 @@ public class Favourites implements Parcelable {
 
     private Favourites() {
     }
+
 
 
     public ArrayList<Recipe> getFavourites() {
@@ -63,6 +65,22 @@ public class Favourites implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-
+        dest.writeTypedList(this.favourites);
     }
+
+    protected Favourites(Parcel in) {
+        this.favourites = in.createTypedArrayList(Recipe.CREATOR);
+    }
+
+    public static final Parcelable.Creator<Favourites> CREATOR = new Creator<Favourites>() {
+        @Override
+        public Favourites createFromParcel(Parcel source) {
+            return new Favourites(source);
+        }
+
+        @Override
+        public Favourites[] newArray(int size) {
+            return new Favourites[size];
+        }
+    };
 }
