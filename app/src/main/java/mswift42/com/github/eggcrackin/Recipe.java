@@ -63,6 +63,12 @@ public class Recipe implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-
+        dest.writeString(publisher);
+        dest.writeString(title);
+        dest.writeString(source_url);
+        dest.writeInt(image_url);
+        dest.writeString(publisher_url);
+        dest.writeString(recipe_id);
+        dest.writeStringArray(ingredients);
     }
 }
