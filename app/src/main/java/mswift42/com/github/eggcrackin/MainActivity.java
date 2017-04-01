@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -30,7 +31,9 @@ public class MainActivity extends AppCompatActivity
         mRecipeList.setAdapter(mAdapter);
         try {
             String restored = FileUtility.restoreFromFile(this);
+            Log.i("FAVOURITESRESTORED", restored);
             Favourites.getInstance().setRecipesFromJson(restored);
+            Log.i("FAVOURITESLIST", Favourites.getInstance().getFavourites().toString());
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -43,7 +46,7 @@ public class MainActivity extends AppCompatActivity
 
     @Override
     protected void onSaveInstanceState(Bundle outState) {
-        outState.putStringArrayList("favourites",
+        outState.putParcelableArrayList("favourites",
                 Favourites.getInstance().getFavourites());
         super.onSaveInstanceState(outState);
     }
@@ -51,8 +54,9 @@ public class MainActivity extends AppCompatActivity
     @Override
     protected void onRestoreInstanceState(Bundle savedInstanceState) {
         super.onRestoreInstanceState(savedInstanceState);
-        Favourites.getInstance().setFavourites(
-                savedInstanceState.getStringArrayList("favourites"));
+        ArrayList<Recipe> favs = savedInstanceState.getParcelableArrayList("favourites");
+        Favourites.getInstance().setFavourites(favs);
+
     }
 
     @Override

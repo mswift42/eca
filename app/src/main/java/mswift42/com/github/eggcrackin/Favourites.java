@@ -50,7 +50,7 @@ public class Favourites implements Parcelable {
         Gson gson = new Gson();
         return gson.toJson(ourInstance);
     }
-
+// TODO set favourites list with gson data.
     public void setRecipesFromJson(String json) {
         Gson gson = new Gson();
         Favourites favs = gson.fromJson(json,
