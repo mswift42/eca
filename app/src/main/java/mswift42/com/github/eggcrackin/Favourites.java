@@ -5,7 +5,9 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 
+import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashSet;
@@ -53,9 +55,9 @@ public class Favourites implements Parcelable {
 // TODO set favourites list with gson data.
     public void setRecipesFromJson(String json) {
         Gson gson = new Gson();
-        Favourites favs = gson.fromJson(json,
-                mswift42.com.github.eggcrackin.Favourites.class);
-        favourites = favs.getFavourites();
+        Type type = new TypeToken<ArrayList<Recipe>>(){}.getType();
+        ArrayList<Recipe> recipes = gson.fromJson(json, type);
+        setFavourites(recipes);
     }
 
     @Override
