@@ -8,6 +8,8 @@ import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -31,12 +33,17 @@ public class MainActivity extends AppCompatActivity
         mRecipeList.setAdapter(mAdapter);
         try {
             String restored = FileUtility.restoreFromFile(this);
-            Log.i("FAVOURITESRESTORED", restored);
             Favourites.getInstance().setRecipesFromJson(restored);
-            Log.i("FAVOURITESLIST", Favourites.getInstance().getFavourites().toString());
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.main_menu, menu);
+        return super.onCreateOptionsMenu(menu);
     }
 
     @Override
