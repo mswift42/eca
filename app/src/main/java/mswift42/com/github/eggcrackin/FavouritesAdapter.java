@@ -7,6 +7,16 @@ import java.util.List;
 
 
 public class FavouritesAdapter extends RecyclerView.Adapter {
+
+    final private ListItemClickListener mOnClickListener;
+
+    public interface ListItemClickListener {
+        void onListItemClick(int clickedItemIndex);
+    }
+
+    private List<Recipe> mFavourites = Favourites.getInstance().getFavourites();
+
+    private static int viewHolderCount;
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position, List payloads) {
         super.onBindViewHolder(holder, position, payloads);
