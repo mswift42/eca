@@ -86,7 +86,6 @@ public class RecipesAdapter extends RecyclerView.Adapter<RecipesAdapter.RecipeVi
 
             mRecipeTitle = (TextView) itemView.findViewById(R.id.ec_recipe_title);
             mRecipeImage = (ImageView) itemView.findViewById(R.id.ec_recipe_image);
-            // COMPLETED (7) Call setOnClickListener on the View passed into the constructor (use 'this' as the OnClickListener)
             mFavouriteIcon = (ImageView) itemView.findViewById(R.id.ec_favorite_icon_not_favourite);
             mFavouriteIcon.setOnClickListener(this);
             mRecipeIngredients = (TextView) itemView.findViewById(R.id.ec_recipe_ingredients);
