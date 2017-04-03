@@ -17,6 +17,14 @@ public class FavouritesAdapter extends RecyclerView.Adapter {
     private List<Recipe> mFavourites = Favourites.getInstance().getFavourites();
 
     private static int viewHolderCount;
+    private int mNumberItems;
+
+    public FavouritesAdapter(int numberOfItems, ListItemClickListener listener) {
+        mNumberItems = numberOfItems;
+        mOnClickListener = listener;
+        viewHolderCount = 0;
+    }
+
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position, List payloads) {
         super.onBindViewHolder(holder, position, payloads);
