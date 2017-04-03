@@ -34,14 +34,14 @@ public class FavouritesAdapter extends RecyclerView.Adapter {
     }
 
     @Override
-    public FavouritesViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public FavouriteViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         Context context = parent.getContext();
         int layoutIdForListItem = R.layout.favourite_card;
         LayoutInflater inflater = LayoutInflater.from(context);
         boolean shouldAttachToParentImmediateley = false;
 
         View view = inflater.inflate(layoutIdForListItem, parent, shouldAttachToParentImmediateley);
-        FavouritesViewHolder viewHolder = new FavouritesViewHolder(view);
+        FavouriteViewHolder viewHolder = new FavouriteViewHolder(view);
         return viewHolder;
     }
 
@@ -56,9 +56,9 @@ public class FavouritesAdapter extends RecyclerView.Adapter {
         return mNumberItems;
     }
 
-    class FavouritesViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+    class FavouriteViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
-        public FavouritesViewHolder(View itemView) {
+        public FavouriteViewHolder(View itemView) {
             super(itemView);
         }
 
