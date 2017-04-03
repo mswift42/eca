@@ -1,6 +1,9 @@
 package mswift42.com.github.eggcrackin;
 
+import android.content.Context;
 import android.support.v7.widget.RecyclerView;
+import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 
 import java.util.List;
@@ -31,9 +34,17 @@ public class FavouritesAdapter extends RecyclerView.Adapter {
     }
 
     @Override
-    public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        return null;
+    public FavouritesViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        Context context = parent.getContext();
+        int layoutIdForListItem = R.layout.favourite_card;
+        LayoutInflater inflater = LayoutInflater.from(context);
+        boolean shouldAttachToParentImmediateley = false;
+
+        View view = inflater.inflate(layoutIdForListItem, parent, shouldAttachToParentImmediateley);
+        FavouritesViewHolder viewHolder = new FavouritesViewHolder(view);
+        return viewHolder;
     }
+
 
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
@@ -42,6 +53,18 @@ public class FavouritesAdapter extends RecyclerView.Adapter {
 
     @Override
     public int getItemCount() {
-        return 0;
+        return mNumberItems;
+    }
+
+    class FavouritesViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+
+        public FavouritesViewHolder(View itemView) {
+            super(itemView);
+        }
+
+        @Override
+        public void onClick(View v) {
+            int onClickedPosition = getAdapterPosition();
+        }
     }
 }
