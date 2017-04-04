@@ -67,9 +67,20 @@ public class FavouritesAdapter extends RecyclerView.Adapter {
         String mFavouriteSourceUrl;
         String[] ingredients;
 
+        void bind(int listIndex) {
+            String title = mFavourites.get(listIndex).getTitle();
+            int image = mFavourites.get(listIndex).getImage_url();
+            String publisher = mFavourites.get(listIndex).getPublisher();
+            mFavouriteTitle.setText(title);
+            mFavouriteImage.setImageResource(image);
+            ingredients = mFavourites.get(listIndex).getIngredients();
+            mFavouritePublisher.setText(publisher);
+        }
 
         public FavouriteViewHolder(View itemView) {
             super(itemView);
+
+            mFavouriteTitle = (TextView) itemView.findViewById(R.id.ec_favourite_title);
         }
 
         @Override
