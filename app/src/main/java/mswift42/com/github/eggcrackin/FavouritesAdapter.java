@@ -5,6 +5,8 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import java.util.List;
 
@@ -57,6 +59,14 @@ public class FavouritesAdapter extends RecyclerView.Adapter {
     }
 
     class FavouriteViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+        TextView mFavouriteTitle;
+        ImageView mFavouriteImage;
+        ImageView mFavouriteDeleteIcon;
+        TextView mFavouritePublisher;
+        TextView mFavouriteIngredients;
+        String mFavouriteSourceUrl;
+        String[] ingredients;
+
 
         public FavouriteViewHolder(View itemView) {
             super(itemView);
