@@ -2,6 +2,7 @@ package mswift42.com.github.eggcrackin;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -75,6 +76,7 @@ public class FavouritesAdapter extends RecyclerView.Adapter {
             mFavouriteImage.setImageResource(image);
             ingredients = mFavourites.get(listIndex).getIngredients();
             mFavouritePublisher.setText(publisher);
+            mFavouriteIngredients.setText(TextUtils.join("\n", ingredients));
         }
 
         public FavouriteViewHolder(View itemView) {
@@ -83,6 +85,8 @@ public class FavouritesAdapter extends RecyclerView.Adapter {
             mFavouriteTitle = (TextView) itemView.findViewById(R.id.ec_favourite_title);
             mFavouriteImage = (ImageView) itemView.findViewById(R.id.ec_favourite_image);
             mFavouriteDeleteIcon = (ImageView) itemView.findViewById(R.id.ec_favourite_delete_icon);
+            mFavouritePublisher = (TextView) itemView.findViewById(R.id.ec_favourites_publisher);
+            mFavouriteIngredients = (TextView) itemView.findViewById(R.id.ec_favourites_ingredients);
         }
 
         @Override
