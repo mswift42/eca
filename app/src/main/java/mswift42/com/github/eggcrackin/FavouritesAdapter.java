@@ -81,6 +81,8 @@ public class FavouritesAdapter extends RecyclerView.Adapter {
             super(itemView);
 
             mFavouriteTitle = (TextView) itemView.findViewById(R.id.ec_favourite_title);
+            mFavouriteImage = (ImageView) itemView.findViewById(R.id.ec_favourite_image);
+            mFavouriteDeleteIcon = (ImageView) itemView.findViewById(R.id.ec_favourite_delete_icon);
         }
 
         @Override
